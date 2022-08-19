@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../utilities/constants.dart';
+import '../support/customer_support.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -158,7 +159,9 @@ class _SignInPageState extends State<SignInPage> {
               size: 35,
             ),
             trailing: const Icon(Icons.forward),
-            onTap: () {},
+            onTap: () {
+              ccNavigateToNextPage(context, const ContactCustomerSupport());
+            },
           ),
           const Divider(
             thickness: 2.5,
@@ -173,7 +176,9 @@ class _SignInPageState extends State<SignInPage> {
                 size: 35,
               ),
               trailing: const Icon(Icons.forward),
-              onTap: () {},
+              onTap: () {
+                ccNavigateToNextPage(context, const ContactCustomerSupport());
+              },
             ),
           ),
         ],
