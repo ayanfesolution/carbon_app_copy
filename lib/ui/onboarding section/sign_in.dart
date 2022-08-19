@@ -1,9 +1,17 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:carbon_app_copy/data/model/local_auth_api.dart';
+import 'package:carbon_app_copy/ui/onboarding%20section/onboarding_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:otp_text_field/otp_field.dart';
+import 'package:otp_text_field/otp_text_field.dart';
+import 'package:otp_text_field/style.dart';
 
 import '../../utilities/constants.dart';
+import '../home/home.dart';
 import '../support/customer_support.dart';
-import 'reset pin.dart';
+import 'reset_pin.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -74,6 +82,27 @@ class _SignInPageState extends State<SignInPage> {
                   ],
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: OTPTextField(
+                  length: 4,
+                  width: MediaQuery.of(context).size.width,
+                  fieldStyle: FieldStyle.underline,
+                  style: const TextStyle(fontSize: 20),
+                  obscureText: true,
+                  fieldWidth: 50,
+                  otpFieldStyle: OtpFieldStyle(
+                      enabledBorderColor: ccPrimaryColor,
+                      borderColor: ccPrimaryColor,
+                      focusBorderColor: ccPrimaryColor),
+                  onChanged: ((value) {
+                    print(value);
+                  }),
+                  onCompleted: (pin) {
+                    ccNavigateToNextPageAndReplace(context, const Home());
+                  },
+                ),
+              ),
               TextButton(
                 onPressed: () {
                   showModalBottomSheet(
@@ -92,7 +121,13 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  final isAutheticate = await LocalAuthApi.authenticate();
+
+                  if (isAutheticate) {
+                    ccNavigateToNextPageAndReplace(context, const Home());
+                  }
+                },
                 child: Container(
                   decoration: const BoxDecoration(
                       border: Border(
@@ -118,7 +153,10 @@ class _SignInPageState extends State<SignInPage> {
                       style: ccNormalBoldText,
                     ),
                     TextButton(
-                        onPressed: (() {}),
+                        onPressed: (() {
+                          ccNavigateToNextPageAndReplace(
+                              context, const OnboardingScreen());
+                        }),
                         child: const Text(
                           'Sign out',
                           style: ccNormalBoldText,

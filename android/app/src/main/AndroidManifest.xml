@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.carboncopy.carbon_app_copy">
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
    <application
         android:label="carbon_app_copy"
         android:name="${applicationName}"

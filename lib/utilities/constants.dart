@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../ui/support/customer_support.dart';
-
 // All the needed reuseable colors
 const Color ccPrimaryColor = Color.fromRGBO(65, 24, 185, 1);
 
@@ -12,10 +10,18 @@ const TextStyle ccMainTitleStyle =
 const TextStyle ccNormalBoldText =
     TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
 
-ccNavigateToNextPage(BuildContext context, StatefulWidget nextPage) {
+ccNavigateToNextPage(BuildContext context, Widget nextPage) {
   Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const ContactCustomerSupport(),
+        builder: (context) => nextPage,
+      ));
+}
+
+ccNavigateToNextPageAndReplace(BuildContext context, Widget nextPage) {
+  Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => nextPage,
       ));
 }

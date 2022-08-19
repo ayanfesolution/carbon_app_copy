@@ -1,6 +1,7 @@
 package com.carboncopy.carbon_app_copy
 
-import io.flutter.embedding.android.FlutterActivity
+ import io.flutter.embedding.android.FlutterFragmentActivity
 
-class MainActivity: FlutterActivity() {
-}
+  class MainActivity: FlutterFragmentActivity() {
+      // ...
+  }
