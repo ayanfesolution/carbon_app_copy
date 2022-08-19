@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../utilities/constants.dart';
 import '../support/customer_support.dart';
+import 'reset pin.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -160,7 +161,7 @@ class _SignInPageState extends State<SignInPage> {
             ),
             trailing: const Icon(Icons.forward),
             onTap: () {
-              ccNavigateToNextPage(context, const ContactCustomerSupport());
+              ccNavigateToNextPage(context, const ResetPinPage());
             },
           ),
           const Divider(
