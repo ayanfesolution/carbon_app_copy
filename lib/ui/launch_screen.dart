@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'onboarding section/onboarding_screen.dart';
+import 'onboarding section/sign_in.dart';
 
 class LaunchScreen extends StatefulWidget {
   const LaunchScreen({Key? key}) : super(key: key);
@@ -16,38 +16,39 @@ class _LaunchScreenState extends State<LaunchScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     initialAction();
     super.initState();
   }
 
-bool changingImage() {
-  setState(() {
-    isInitialImage = false;
-  });
-  return isInitialImage;
-}
+  bool changingImage() {
+    setState(() {
+      isInitialImage = false;
+    });
+    return isInitialImage;
+  }
 
   initialAction() async {
-    Timer(const Duration(seconds: 4), 
-    ()=> Navigator.pushReplacement(
-      context, MaterialPageRoute(builder: (context) => const OnboardingScreen(),)));
-    Timer(const Duration(seconds: 3), ()=> changingImage());
+    Timer(
+        const Duration(seconds: 4),
+        () => Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const SignInPage(),
+            )));
+    Timer(const Duration(seconds: 3), () => changingImage());
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white
-      ),
+      decoration: const BoxDecoration(color: Colors.white),
       child: Center(
         child: SizedBox(
-          height: 250,
-          width: 250,
-          child: isInitialImage ? Image.asset('assets/images/Carbon-logo.webp') 
-          : Image.asset('assets/images/carbon_long_logo.png')
-        ),
+            height: 250,
+            width: 250,
+            child: isInitialImage
+                ? Image.asset('assets/images/Carbon-logo.webp')
+                : Image.asset('assets/images/carbon_long_logo.png')),
       ),
     );
   }
