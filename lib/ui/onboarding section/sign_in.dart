@@ -4,7 +4,6 @@ import 'package:carbon_app_copy/data/model/local_auth_api.dart';
 import 'package:carbon_app_copy/ui/onboarding%20section/onboarding_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 
