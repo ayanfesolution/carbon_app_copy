@@ -1,5 +1,6 @@
-import 'package:carbon_app_copy/ui/launch_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'ui/onboarding section/welcome_back.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
         primarySwatch: Colors.deepPurple,
       ),
-      home: const LaunchScreen(),
+      home: const WelcomeBackPage(),
     );
   }
 }
-

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'onboarding section/sign_in.dart';
+import 'onboarding section/welcome_back.dart';
 
 class LaunchScreen extends StatefulWidget {
   const LaunchScreen({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
         () => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => const SignInPage(),
+              builder: (context) => const WelcomeBackPage(),
             )));
     Timer(const Duration(seconds: 3), () => changingImage());
   }
